@@ -2,7 +2,7 @@
 includes("lib/commonlibsse-ng")
 
 -- set project constants
-set_project("commonlibsse-ng-template")
+set_project("AhegaoDialogSKSE")
 set_version("0.0.0")
 set_license("GPL-3.0")
 set_languages("c++23")
@@ -12,10 +12,12 @@ set_warnings("allextra")
 add_rules("mode.debug", "mode.releasedbg")
 add_rules("plugin.vsxmake.autoupdate")
 
+add_requires("simpleini")
+
 -- define targets
-target("commonlibsse-ng-template")
+target("AhegaoDialogSKSE")
     add_rules("commonlibsse-ng.plugin", {
-        name = "commonlibsse-ng-template",
+        name = "AhegaoDialogSKSE",
         author = "libxse",
         description = "SKSE64 plugin template using CommonLibSSE-NG"
     })
@@ -25,3 +27,6 @@ target("commonlibsse-ng-template")
     add_headerfiles("src/**.h")
     add_includedirs("src")
     set_pcxxheader("src/pch.h")
+
+    add_defines("NOMINMAX")
+    add_packages("simpleini")
